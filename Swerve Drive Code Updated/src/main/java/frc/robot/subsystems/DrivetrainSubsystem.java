@@ -21,15 +21,15 @@ import frc.robot.common.robot.Mk2SwerveModuleBuilder;
 import frc.robot.common.robot.NavX;
 
 public class DrivetrainSubsystem extends SubsystemBase {
-    private static final double TRACKWIDTH = 19.5;
-    private static final double WHEELBASE = 23.5;
+    private static final double TRACKWIDTH = 20.5;
+    private static final double WHEELBASE = 20.5;
 
-    private static final double FRONT_LEFT_ANGLE_OFFSET = -Math.toRadians(0.0);
-    private static final double FRONT_RIGHT_ANGLE_OFFSET = -Math.toRadians(0.0);
-    private static final double BACK_LEFT_ANGLE_OFFSET = -Math.toRadians(0.0);
-    private static final double BACK_RIGHT_ANGLE_OFFSET = -Math.toRadians(0.0);
+    private static final double FRONT_LEFT_ANGLE_OFFSET = -Math.toRadians(171.5);
+    private static final double FRONT_RIGHT_ANGLE_OFFSET = -Math.toRadians(172.5);
+    private static final double BACK_LEFT_ANGLE_OFFSET = -Math.toRadians(219.6);
+    private static final double BACK_RIGHT_ANGLE_OFFSET = -Math.toRadians(173.7);
 
-    private static DrivetrainSubsystem instance;
+    //private static DrivetrainSubsystem instance;
 
     private final SwerveModule frontLeftModule = new Mk2SwerveModuleBuilder(
             new Vector2(TRACKWIDTH / 2.0, WHEELBASE / 2.0))
@@ -83,13 +83,13 @@ public class DrivetrainSubsystem extends SubsystemBase {
         backRightModule.setName("Back Right");
     }
 
-    public static DrivetrainSubsystem getInstance() {
+    /*public static DrivetrainSubsystem getInstance() {
         if (instance == null) {
             instance = new DrivetrainSubsystem();
         }
 
         return instance;
-    }
+    }*/
 
     @Override
     public void periodic() {
@@ -133,6 +133,6 @@ public class DrivetrainSubsystem extends SubsystemBase {
     }
 
     protected void initDefaultCommand() {
-        setDefaultCommand(new DriveCommand());
-    }
+        new DriveCommand();
+}
 }
