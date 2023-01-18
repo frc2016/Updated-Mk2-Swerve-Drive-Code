@@ -59,7 +59,7 @@ public class DriveCommand extends CommandBase {
     // Square the rotation stick
     rotation = Math.copySign(Math.pow(rotation, 2.0), rotation);
 
-    Robot.drivetrain.drive(new Translation2d(forward/5, strafe/5), rotation/5, true);
+    Robot.drivetrain.drive(new Translation2d(forward/5, strafe/5), rotation/5, false);
   }
   
   private void driveJoystick(){
@@ -79,6 +79,6 @@ public class DriveCommand extends CommandBase {
     // Square the rotation stick
     rotation = Math.copySign(Math.pow(rotation, 2.0), rotation);
 
-    Robot.drivetrain.drive(new Translation2d(forward/5, strafe/5), rotation/5, true);
+    Robot.drivetrain.drive(new Translation2d(forward, strafe), rotation, false);
   }
 }

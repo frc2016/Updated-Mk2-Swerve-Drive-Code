@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveCommand;
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -14,7 +15,6 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.common.drivers.Gyroscope;
 import frc.robot.common.drivers.SwerveModule;
 import frc.robot.common.math.Vector2;
 import frc.robot.common.robot.Mk2SwerveModuleBuilder;
@@ -71,7 +71,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
             new Translation2d(-TRACKWIDTH / 2.0, -WHEELBASE / 2.0)
     );
 
-    private final Gyroscope gyroscope = new NavX(SPI.Port.kMXP);
+    private final NavX gyroscope = new NavX(SPI.Port.kMXP);
 
     public DrivetrainSubsystem() {
         gyroscope.calibrate();
@@ -104,6 +104,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
         SmartDashboard.putNumber("Back Right Module Angle", Math.toDegrees(backRightModule.getCurrentAngle()));
 
         SmartDashboard.putNumber("Gyroscope Angle", gyroscope.getAngle().toDegrees());
+        SmartDashboard.putNumber("Gyro Pitch", gyroscope.getAxis(NavX.Axis.PITCH));
 
         frontLeftModule.updateState(TimedRobot.kDefaultPeriod);
         frontRightModule.updateState(TimedRobot.kDefaultPeriod);

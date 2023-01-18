@@ -1,5 +1,6 @@
 package frc.robot;
 
+// import frc.robot.commands.AutoBalance;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.ResetGyro;
 import edu.wpi.first.wpilibj.XboxController;
@@ -22,6 +23,9 @@ public class OI {
 
         driveButton = new JoystickButton(driveController, 2);
         driveButton.whenPressed(new DriveCommand());
+
+        // autoBalanceButton = new JoystickButton(driveController, 3);
+        // autoBalanceButton.whileHeld(new AutoBalance());
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Reset Gyro", new ResetGyro());
