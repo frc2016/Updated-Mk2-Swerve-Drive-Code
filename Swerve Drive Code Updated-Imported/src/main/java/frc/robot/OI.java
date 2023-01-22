@@ -2,6 +2,7 @@ package frc.robot;
 
 // import frc.robot.commands.AutoBalance;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.PhotonDrive;
 import frc.robot.commands.ResetGyro;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -13,6 +14,7 @@ public class OI {
      */
     private XboxController driveController = new XboxController(0);
     private JoystickButton gyroResetButton;
+    private JoystickButton visionDriveButton;
     private JoystickButton driveButton;
 
     public OI() {
@@ -23,6 +25,9 @@ public class OI {
 
         driveButton = new JoystickButton(driveController, 2);
         driveButton.whenPressed(new DriveCommand());
+
+        visionDriveButton = new JoystickButton(driveController, 3);
+        visionDriveButton.whileHeld(new PhotonDrive());
 
         // autoBalanceButton = new JoystickButton(driveController, 3);
         // autoBalanceButton.whileHeld(new AutoBalance());
